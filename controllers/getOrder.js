@@ -9,7 +9,6 @@ export const handleGetOrder = (req, res, db, bcrypt) => {
         if (data.length===1){
           if (data[0].result !== null){
             res.send(data[0]);
-            console.log('Resultat: ', data[0].result)
           } else res.status(425).send('Doc didnt check your order yet.')
         } else res.status(400).send('order not found')
 
