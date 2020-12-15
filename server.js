@@ -30,6 +30,7 @@ app.use(cors())
 app.use(bodyParser.json())
 
 
+app.get('/', (req, res) => res.send('IT WORKS!'))
 
 app.post('/getOrder', (req, res) => handleGetOrder(req, res, db, bcrypt))
 
