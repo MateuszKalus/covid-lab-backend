@@ -29,10 +29,8 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
 const db = knex({
     client: 'pg',
     connection: {
-        host : 'ec2-54-211-238-131.compute-1.amazonaws.com',
-        user : 'shtclajtnemcrs',
-        password : '48e0ba89b89e6782ebf9567d882797ba699de31c881595fd536a72d510a54bec',
-        database : 'd8cdj3mkjt6sro'
+        host : process.env.DATABASE_URL,
+        ssl: true;
     }
 });
 
