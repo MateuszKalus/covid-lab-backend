@@ -14,7 +14,7 @@ import { handleRegisterNewClient } from "./controllers/registerNewClient.js";
 import { handleCreateNewOrder } from "./controllers/createNewOrder.js";
 
 
-const db = knex({
+const db2 = knex({
     client: 'pg',
     connection: {
         host : '127.0.0.1',
@@ -24,13 +24,23 @@ const db = knex({
     }
 });
 
+const db = knex({
+    client: 'pg',
+    connection: {
+        host : 'ec2-54-211-238-131.compute-1.amazonaws.com',
+        user : 'shtclajtnemcrs',
+        password : '48e0ba89b89e6782ebf9567d882797ba699de31c881595fd536a72d510a54bec',
+        database : 'd8cdj3mkjt6sro'
+    }
+});
+
 const app = express();
 
 app.use(cors())
 app.use(bodyParser.json())
 
 
-app.get('/', (req, res) => res.send('IT WORKS!'))
+app.get('/', (req, res) => res.send('IT WORKS'))
 
 app.post('/getOrder', (req, res) => handleGetOrder(req, res, db, bcrypt))
 
@@ -54,4 +64,4 @@ app.use( function(req, res, next) {
 });
 
 
-app.listen(process.env.PORT);
+app.listen(process.env.PORT || 3001);
