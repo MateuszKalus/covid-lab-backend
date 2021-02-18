@@ -1,6 +1,5 @@
 export const handleGetOrder = (req, res, db, bcrypt) => {
 
-    console.log('PARATORE')
     db.select('*').from('orders').where({
         order_number: parseInt(req.body.order_number),
         birthday: req.body.birthday

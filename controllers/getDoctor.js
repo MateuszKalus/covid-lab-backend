@@ -13,7 +13,6 @@ export const handleGetDoctor = (req, res, db, bcrypt) => {
                 });
 
         } else {
-            console.log('KKKKK')
             res.status(404).send('Doctor not found.')
         }
 
